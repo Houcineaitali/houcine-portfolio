@@ -203,7 +203,7 @@
             // Update error message
             errorMessage.classList.remove('success-message');
             errorMessage.classList.add('error-message');
-            errorMessage.innerHTML = error;
+            errorMessage.textContent = error;
 
         };
 
