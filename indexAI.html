@@ -89,8 +89,12 @@ async function askAI() {
     if (message === "") return;
 
     // 1. عرض رسالة المستخدم
-    chatWindow.innerHTML += `<div><p class="user-msg">${message}</p></div>`;
-    inputField.value = '';
+const msgDiv = document.createElement('div');
+const msgP = document.createElement('p');
+msgP.className = 'user-msg';
+msgP.textContent = message; // آمنة جداً ضد XSS
+msgDiv.appendChild(msgP);
+chatWindow.appendChild(msgDiv);    inputField.value = '';
     sendBtn.disabled = true; // تجميد الزر حتى يجي الجواب
     chatWindow.scrollTop = chatWindow.scrollHeight;
 
